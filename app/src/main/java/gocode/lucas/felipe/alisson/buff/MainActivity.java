@@ -11,16 +11,19 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
     private Button math;
+    private boolean t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         math = (Button) findViewById(R.id.buttonMainMath);
+        t = false;
         math.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), MathActivity.class);
+                intent.putExtra("aberto",t);
                 startActivity(intent);
             }
         });

@@ -8,6 +8,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="gocode.lucas.felipe.alisson.buff.MathActivity">
 
+    <TextView
+        android:id="@+id/TextViewMathPts"
+        style="@style/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:text="PTS" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -57,23 +65,22 @@
                 style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="A" />
+                android:text="0" />
 
             <Button
                 android:id="@+id/buttonMathB"
                 style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="B" />
+                android:text="0" />
 
             <Button
                 android:id="@+id/buttonMathC"
                 style="@style/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="C" />
+                android:text="0" />
 
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>
