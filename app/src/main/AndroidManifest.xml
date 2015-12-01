@@ -20,6 +20,10 @@
             android:name=".MathActivity"
             android:label="@string/title_activity_math" >
         </activity>
+        <activity
+            android:name=".PontosActivity"
+            android:label="@string/title_activity_pontos" >
+        </activity>
     </application>
 
 </manifest>

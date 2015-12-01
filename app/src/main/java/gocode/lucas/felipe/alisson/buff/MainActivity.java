@@ -8,27 +8,40 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Random;
+
 public class MainActivity extends Activity {
 
     private Button math;
+    public static Class[] telas;
     private boolean t;
+    private Random random;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        random = new Random();
+        telas = new Class[2];
+        telas[0] = MathActivity.class;
+        telas[1] = PontosActivity.class;
         math = (Button) findViewById(R.id.buttonMainMath);
         t = false;
         math.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), MathActivity.class);
-                intent.putExtra("aberto",t);
+                Intent intent = new Intent(v.getContext(), telas[random.nextInt(2)]);
+                intent.putExtra("pontos",0);
                 startActivity(intent);
             }
         });
+
+
     }
 
+    public static void chamaActivity(){
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

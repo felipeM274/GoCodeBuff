@@ -18,10 +18,10 @@ public class MathActivity extends Activity {
     private Button[] resultado;
     private Button a, b, c;
     private Random random;
-    private int xi, opi, yi, r, pontos;
+    private int xi, opi, yi, r, pontos , p;
     private Double rd;
     private DecimalFormat d = new DecimalFormat("#,##0.00");
-    private boolean div, t;
+    private boolean div;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,9 @@ public class MathActivity extends Activity {
         setContentView(R.layout.activity_math);
         random = new Random();
         resultado = new Button[03];
+        Bundle bundle = getIntent().getExtras();
+        pontos = bundle.getInt("pontos");
+        p = pontos;
         x = (TextView) findViewById(R.id.TextViewMathX);
         y = (TextView) findViewById(R.id.TextViewMathY);
         op = (TextView) findViewById(R.id.TextViewMathOp);
@@ -39,16 +42,6 @@ public class MathActivity extends Activity {
         resultado[0] = a;
         resultado[1] = b;
         resultado[2] = c;
-        Bundle bundle = getIntent().getExtras();
-        t = bundle.getBoolean("aberto");
-        if (t){
-
-            if (bundle.getInt("pontos") < 0){
-                finish();
-            } else {
-                pontos = bundle.getInt("pontos");
-            }
-        }
         setValores(x, op, y);
         pts.setText("Pontos: " + pontos);
 
@@ -87,18 +80,19 @@ public class MathActivity extends Activity {
             }
         }
         if (pontos < 0){
-            Intent intent = getIntent();
+            Intent intent = new Intent(this,PontosActivity.class);
             intent.putExtra("pontos",pontos);
-            intent.putExtra("aberto",t = true);
             finish();
             startActivity(intent);
         } else {
             pts.setText("Pontos: " + pontos);
             Intent intent = getIntent();
             intent.putExtra("pontos",pontos);
-            intent.putExtra("aberto",t = true);
             finish();
             startActivity(intent);
+        }
+        if (pontos == (p+5)){
+            MainActivity.chamaActivity();
         }
     }
     private void setValores(TextView x, TextView op, TextView y) {
