@@ -14,8 +14,10 @@ public class MainActivity extends Activity {
 
     private Button math;
     public static Class[] telas;
+    public static int pontos;
     private boolean t;
     private Random random;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
